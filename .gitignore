@@ -1,0 +1,99 @@
+# ---------------------------------------------------------------
+# Operating System and IDE specific files
+# ---------------------------------------------------------------
+.DS_Store
+.env.bak
+.env.*.local
+.eslintcache
+.idea/ # IntelliJ / PyCharm / WebStorm
+.vscode/ # VS Code specific settings
+*.swp
+*.bak
+*.tmp
+*~
+# ---------------------------------------------------------------
+# Python Specific
+# ---------------------------------------------------------------
+# Byte-code files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+/bin/
+
+# Python specific build artifacts
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.manifest
+.Python
+# mypy cache
+.mypy_cache/
+.dmypy.json
+# pytest cache
+.pytest_cache/
+
+# Jupyter Notebook / IPython
+.ipynb_checkpoints
+
+# ---------------------------------------------------------------
+# Node.js / Frontend Specific (e.g., React, Vue, Svelte)
+# ---------------------------------------------------------------
+# Dependency directories
+node_modules/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/.pnp/
+.pnpm-store/
+
+# Build artifacts
+# Adjust 'build/' or 'dist/' based on your frontend framework's output directory
+build/
+dist/
+out/ # For Next.js/Nuxt.js static exports
+.next/ # For Next.js
+.nuxt/ # For Nuxt.js
+.svelte-kit/ # For SvelteKit
+
+# Other temporary or configuration files
+.parcel-cache/
+.vite/ # Vite build cache
+
+# ---------------------------------------------------------------
+# Docker Specific
+# ---------------------------------------------------------------
+# Docker-managed volumes (these are typically outside your repo,
+# but ensure no accidental local files are picked up)
+# The actual data is in Docker's managed area, but local directories
+# created for bind mounts (if you used them instead of named volumes)
+# should be gitignored.
+# e.g., if you mounted ./mysql_data:/var/lib/mysql
+mysql_data/
+postgres_data/ # If you used PostgreSQL directly, common name for its local data
+db_data/       # Another common name for local DB data folder
+
+# Container logs
+*.log
+docker-compose*.log
+# Docker socket bind mounts (if any)
+/var/run/docker.sock
+
+# ---------------------------------------------------------------
+# Environment Variables & Sensitive Data
+# ---------------------------------------------------------------
+# ALWAYS ignore your .env files as they contain sensitive information
+.env
