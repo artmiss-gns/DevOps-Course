@@ -1,0 +1,77 @@
+# #######################
+# General / OS
+# #######################
+.DS_Store
+*.log
+*.swp
+
+# #######################
+# Secrets & Credentials
+# #######################
+# Ignore environment files
+.env
+.env.*
+
+# Ignore common credential file names and extensions
+*.pem
+*.key
+credentials.*
+secrets.*
+
+# #######################
+# Terraform
+# #######################
+# Ignore state files, which can contain secrets
+*.tfstate
+*.tfstate.*
+
+# Ignore local terraform plans and variables
+*.tfplan
+*.tfvars
+.terraform/
+crash.log
+
+# #######################
+# Ansible
+# #######################
+# Ignore vault password files
+.vault_pass
+.vault_password
+vault_password.txt
+
+# Ignore retry files
+*.retry
+
+# #######################
+# Kubernetes & Helm
+# #######################
+# Ignore local kubeconfig files
+kubeconfig
+.kube/config
+
+# #######################
+# Docker
+# #######################
+# Ignore local docker-compose overrides
+docker-compose.override.yml
+
+# #######################
+# Python
+# #######################
+__pycache__/
+*.pyc
+/venv/
+/env/
+
+# #######################
+# Node.js
+# #######################
+/node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+
+
+# Custom
+priv-token.txt
