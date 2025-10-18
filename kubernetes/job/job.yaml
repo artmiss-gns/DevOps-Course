@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: busybox-job
+  labels:
+    app: busybox
+spec:
+  completions: 10
+  parallelism: 4
+  #activeDeadlineSeconds: 60
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: busybox-container
+          image: arm64v8/busybox
+          command: ['sh', '-c', 'echo "Hello World"']
