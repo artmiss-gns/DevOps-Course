@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-alpine-ing
+  namespace: devops
+  annotations:
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"   # if using cert-manager
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nginx.test.artmiss.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-alpine-svc
+                port:
+                  number: 80
+  # Uncomment to enable TLS (create the secret first)
+  # tls:
+  #   - hosts:
+  #       - nginx.local.test
+  #     secretName: nginx-alpine-tls

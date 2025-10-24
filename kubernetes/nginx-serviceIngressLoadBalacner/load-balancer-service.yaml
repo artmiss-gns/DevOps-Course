@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-alpine-svc
+  namespace: devops
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx-alpine
+  ports:
+    - name: http
+      port: 8118
+      targetPort: 80
+      protocol: TCP
+  #externalTrafficPolicy: Cluster
