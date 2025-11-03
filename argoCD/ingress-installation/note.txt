@@ -1,0 +1,2 @@
+One of these configuraitons should work for your setup.
+Don't apply them all

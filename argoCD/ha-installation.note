@@ -1,0 +1,3 @@
+this is the argoCD ha installation manifest
+
+https://github.com/argoproj/argo-cd/blob/master/manifests/ha/install.yaml
