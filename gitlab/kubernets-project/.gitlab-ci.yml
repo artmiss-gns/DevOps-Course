@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+build-stage:
+  stage: build
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+  script:
+    - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA .
+    - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA
+  tags:
+    - docker
+  only:
+    - main
+
+deploy-stage:
+  image: dtzar/helm-kubectl:latest
+  stage: deploy
+  before_script:
+    - echo "$KUBECONFIG" > "kubeconfig"
+  script:
+    - kubectl apply -f ./manifests -n devops --kubeconfig=./kubeconfig
+  tags:
+    - docker
+  only:
+    - main
