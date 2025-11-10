@@ -1,0 +1,21 @@
+stages:
+  - build
+  - run
+
+build-stage:
+  stage: build
+  script:
+    - docker build -t nginx-app:v1 .
+  tags:
+    - docker
+  only:
+    - main
+
+run-stage:
+  stage: run
+  script:
+    - docker run -d -p 80:8001 --rm nginx-app:v1
+  tags:
+    - docker
+  only:
+    - main
