@@ -1,0 +1,8 @@
+---
+- name: Jinja Project
+  hosts: jinja-group
+  become: true
+
+  roles:
+    - jinja-test-project
+
