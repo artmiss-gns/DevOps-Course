@@ -1,0 +1,13 @@
+- set_fact:
+    package_name: jcal
+  when: ansible_os_family == "Debian"
+
+- set_fact:
+    package_name: nginx
+  when: ansible_os_family == "RedHat"
+
+- name: install a package based on os distro
+  package:
+    name: "{{ package_name }}"
+    state: present
+
