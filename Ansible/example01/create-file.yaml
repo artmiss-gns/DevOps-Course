@@ -1,0 +1,9 @@
+- name: playbook01
+  hosts: all
+  become: true # sudo 
+  tasks:
+    - name: Creates file on hosts
+      ansible.builtin.file:
+        path: /root
+        state: touch
+        mode: u+rw
