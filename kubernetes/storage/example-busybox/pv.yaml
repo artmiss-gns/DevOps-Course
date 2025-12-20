@@ -1,0 +1,17 @@
+# HostPath PersistentVolume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-test
+  labels:
+    app: busybox
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: test-volume
+  hostPath:
+    path: /mnt/devops/data
+    type: DirectoryOrCreate
